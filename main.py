@@ -5,16 +5,17 @@ import random
 
 client = Bot(command_prefix="$")
 
-@client.command()	#help command with detailed descriptions 
+@client.command()	#help command with detailed descriptions
 async def commandhelp(*args):
 	print(args)
-	helpList = ['```[ORRER} Help Menu - All commands prefixed by "$"', 
-			'hello - test message, returns "Hello!"', 
-			'ytho, myeyes, reee, butytho, eyebrows, whyyoulikethis, noneedtobeupset - general response images', 
-			'error - returns signature error message', 
+	helpList = ['```[ORRER} Help Menu - All commands prefixed by "$"',
+			'hello - test message, returns "Hello!"',
+			'ytho, myeyes, reee, butytho, eyebrows, whyyoulikethis, noneedtobeupset - general response images',
+			'error - returns signature error message',
 			'defcon - current DEF:CON status',
-			'Add command to "$commandhelp" to recieve additional info on that command.', 
-			'EX: $commandhelp ytho', 
+			'theway - YOU DO NOT KNOW THE WAY',
+			'Add command to "$commandhelp" to recieve additional info on that command.',
+			'EX: $commandhelp ytho',
 			'Written by 16ajans#6893 and Maintained by DJ-TrainR3k#4812```']
 	try:
 		list(args)
@@ -26,6 +27,8 @@ async def commandhelp(*args):
 			await client.say('```[ORRER} Help Menu - All commands prefixed by "$"' + "\n" + "\n" + 'hello - test message, returns "Hello!" . . . what more is there to say?```')
 		elif argsSTRING == "defcon":
 			await client.say('```[ORRER} Help Menu - All commands prefixed by "$"' + "\n" + "\n" + 'defcon - current DEF:CON status . . . what more is there to say?```')
+		elif argsSTRING == "theway":
+			await client.say('```[ORRER} Help Menu - All commands prefixed by "$"' + "\n" + "\n" + 'THE WAY. YOU DO NOT KNOW IT.```')
 		elif argsSTRING == "error":
 			await client.say('```[ORRER} Help Menu - All commands prefixed by "$"' + "\n" + "\n" + 'error - returns italicized "[ORRER}", lovingly inspired by DJ-TrainR3k#4812```')
 		elif argsSTRING == "myeyes" or argsSTRING == "spam":
@@ -33,7 +36,7 @@ async def commandhelp(*args):
 		else:
 			await client.say('You fucked up.')
 	except IndexError:
-		await client.say(helpList[0] + "\n" + "\n" + helpList[1] + "\n" + helpList[2] + "\n" + helpList[3] + "\n" + "\n" + helpList[4] + "\n" + helpList[5] + "\n" + "\n" + helpList[6] + "\n" + helpList[7] + "\n"+ "\n")
+		await client.say(helpList[0] + "\n" + "\n" + helpList[1] + "\n" + helpList[2] + "\n" + helpList[3] + "\n" + "\n" + helpList[4] + "\n" + helpList[5] + "\n" + "\n" + helpList[6] + "\n" + helpList[7] + "\n" + "\n" + helpList[8] + "\n"+ "\n")
 
 @client.command()	#test command
 async def hello(*args):
@@ -46,15 +49,19 @@ async def ytho(*args):
 @client.command()	#reee
 async def reee(*args):
 	await client.say('http://imgur.com/Bog0DR1.gif')
-	
+
 @client.command()	#butytho
 async def butytho(*args):
 	await client.say('http://i.imgur.com/fibCEus.gifv')
-	
+
 @client.command()	#defcon
 async def defcon(*args):
 	await client.say('http://www.defconwarningsystem.com/current/defcon.jpg')
-	
+
+@client.command()	#theway
+async def defcon(*args):
+	await client.say(':398661782392274955: :398661782392274955: YOU DO NOT KNOW THE WAY :398661782392274955: :398661782392274955:')
+
 @client.command()	#noneedtobeupset
 async def noneedtobeupset(*args):
 	await client.say('https://www.youtube.com/watch?v=eY52Zsg-KVI')
@@ -62,11 +69,11 @@ async def noneedtobeupset(*args):
 @client.command()	#trevor's bit
 async def error(*args):
 	await client.say("*[ORRER}*")
-	
+
 @client.command()	#why are you like this
 async def whyyoulikethis(*args):
 	await client.say("http://i.imgur.com/QhoSZWy.png")
-	
+
 @client.command()	#eyebrows
 async def eyebrows(*args):
 	randNum = random.randint(0, 1)
@@ -132,5 +139,5 @@ async def on_ready():
 	print(client.user.id)
 	print('------')
 	await client.change_presence(game=discord.Game(name="$commandhelp for help"))
-	
+
 client.run('TOKEN_HERE')
