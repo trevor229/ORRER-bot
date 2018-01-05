@@ -5,6 +5,9 @@ import random
 
 client = Bot(command_prefix="$")
 
+##               FOR FUCKS SAKE PLEASE REMOVE THE TOKEN BEFORE PUSHING!            ##
+#####################################################################################
+
 @client.command()	#help command with detailed descriptions
 async def commandhelp(*args):
 	print(args)
@@ -141,4 +144,4 @@ async def on_ready():
 	print('------')
 	await client.change_presence(game=discord.Game(name="$commandhelp for help"))
 
-client.run('TOKEN')
+client.run('token')
