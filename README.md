@@ -1,4 +1,4 @@
-# -ORRER-bot
+# ORRER-bot
 my shitty discord.py bot
 
 ## Requirements:

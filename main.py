@@ -59,9 +59,10 @@ async def defcon(*args):
 	await client.say('http://www.defconwarningsystem.com/current/defcon.jpg')
 
 @client.command()	#theway
-async def defcon(*args):
-	await client.say(':398661782392274955: :398661782392274955: YOU DO NOT KNOW THE WAY :398661782392274955: :398661782392274955:')
-
+async def theway(*args):
+	await client.say('<:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600><:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600><:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600>')
+	await client.say('<:theway:398661623142809600> <:theway:398661623142809600> ***YOU DO NOT KNOW THE WAY*** <:theway:398661623142809600> <:theway:398661623142809600>')
+	await client.say('<:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600><:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600><:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600>')
 @client.command()	#noneedtobeupset
 async def noneedtobeupset(*args):
 	await client.say('https://www.youtube.com/watch?v=eY52Zsg-KVI')
@@ -140,4 +141,4 @@ async def on_ready():
 	print('------')
 	await client.change_presence(game=discord.Game(name="$commandhelp for help"))
 
-client.run('TOKEN_HERE')
+client.run('TOKEN')
