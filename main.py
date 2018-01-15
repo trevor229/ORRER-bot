@@ -101,7 +101,7 @@ async def myeyes(*args):
 		list(args)
 		argsINT = int(args[0])
 		print(args)
-		if argsINT <= 5:
+		if argsINT <= 1000000: #for mild fuck ups
 			while count < argsINT:
 				await client.say("https://i.imgur.com/zlARfFy.gif")
 				count += 1
@@ -145,4 +145,4 @@ async def on_ready():
 	print('------')
 	await client.change_presence(game=discord.Game(name="$commandhelp for help"))
 
-client.run('token')
+client.run('TOKEN')
