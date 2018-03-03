@@ -2,6 +2,10 @@ import discord
 from discord.ext.commands import Bot
 import asyncio
 import random
+import urllib.request
+
+
+#output_directory = '/home/megumin/discord_bots/ORRER-Bot'
 
 client = Bot(command_prefix="$")
 
@@ -17,7 +21,7 @@ async def commandhelp(*args):
 			'ytho, myeyes, reee, butytho, eyebrows, whyyoulikethis, noneedtobeupset - general response images',
 			'error - returns signature error message',
 			'defcon - current DEF:CON status',
-			'theway - YOU DO NOT KNOW THE WAY',
+			'alex - reaction_images.png',
 			'Add command to "$commandhelp" to recieve additional info on that command.',
 			'EX: $commandhelp ytho',
 			'Written by 16ajans#6893 and Maintained by DJ-TrainR3k#4812```']
@@ -31,8 +35,8 @@ async def commandhelp(*args):
 			await client.say('```[ORRER} Help Menu - All commands prefixed by "$"' + "\n" + "\n" + 'hello - test message, returns "Hello!" . . . what more is there to say?```')
 		elif argsSTRING == "defcon":
 			await client.say('```[ORRER} Help Menu - All commands prefixed by "$"' + "\n" + "\n" + 'defcon - current DEF:CON status . . . what more is there to say?```')
-		elif argsSTRING == "theway":
-			await client.say('```[ORRER} Help Menu - All commands prefixed by "$"' + "\n" + "\n" + 'THE WAY. YOU DO NOT KNOW IT.```')
+		elif argsSTRING == "alex":
+			await client.say('```[ORRER} Help Menu - All commands prefixed by "$"' + "\n" + "\n" + 'Meme images.```')
 		elif argsSTRING == "error":
 			await client.say('```[ORRER} Help Menu - All commands prefixed by "$"' + "\n" + "\n" + 'error - returns italicized "[ORRER}", lovingly inspired by DJ-TrainR3k#4812```')
 		elif argsSTRING == "myeyes" or argsSTRING == "spam":
@@ -44,7 +48,9 @@ async def commandhelp(*args):
 
 @client.command()	#test command
 async def hello(*args):
-	await client.say('Hello!')
+    em = discord.Embed(title='My Embed Title', description='My Embed Content.', colour=0xDEADBF)
+    em.set_author(name='Someone', icon_url='https://i.imgur.com/I1nzRe5.png')
+    await client.say(embed=em)
 
 @client.command()	#classic ytho response
 async def ytho(*args):
@@ -60,13 +66,40 @@ async def butytho(*args):
 
 @client.command()	#defcon
 async def defcon(*args):
-	await client.say('http://www.defconwarningsystem.com/current/defcon.jpg')
+    req = urllib.request.Request('http://www.defconwarningsystem.com/code.dat') # Found from doing a little APK decompiling. Returns single byte.
+    with urllib.request.urlopen(req) as response:
+        dcon = response.read().decode('utf-8')
+        if dcon == "5":
+            em = discord.Embed(description='There are no known imminent nuclear threats against the United States.', colour=0x00ff11)
+            em.set_author(name='The current defcon status is 5. Condition Green', icon_url='https://imgur.com/vua9XAP.png')
+            await client.say(embed=em)
+        else:
+            if dcon == "4":
+                em = discord.Embed(description='No imminent nuclear threats to the US at this time, however, certain events are occuring in the world theater right now that require closer observation.', colour=0x002aff)
+                em.set_author(name='The current defcon status is 4. Condition Blue', icon_url='https://imgur.com/NXdWNNv.png')
+                await client.say(embed=em)
+            else:
+                if dcon == "3":
+                    em = discord.Embed(description='Events of concern are occuring in the world theatre. There is no known immediate nuclear threat against the United States, however the situation is considered fluid.', colour=0xfffc00)
+                    em.set_author(name='The current defcon status is 3. Condition Yellow', icon_url='https://imgur.com/kYQyX4D.png')
+                    await client.say(embed=em)
+                else:
+                    if dcon == "2":
+                        em = discord.Embed(description='Hostilities have or are about to break out. There is the possibility of a nuclear strike against the United States.', colour=0xff6c00)
+                        em.set_author(name='The current defcon status is 2. Condition Orange', icon_url='https://imgur.com/04Qc3yc.png')
+                        await client.say(embed=em)
+                        await client.say("PLEASE TAKE TIME TO READ AND PRINT THIS GUIDE TO NUCLEAR SURVIVAL: http://www.ki4u.com/guide.pdf")
+                    else:
+                        if dcon == "1":
+                            em = discord.Embed(description='A nuclear attack against the United States is in progress or is considered to be highly likely. It is planned for the Alert level to go to Red before an actual attack. This will introduce a possibility of error, but will also give the most warning. You must decide for yourself whether to act upon it or not. Updates will be given at 7 A.M and 7 P.M Pacific Time with immediate updates issued as the situation warrants. Post-attack, radiation levels will be given for the Stevens and Ferry County areas as well as any other areas if possible. Updates for radiation will also be given at 7 A.M. and 7 P.M. Pacific Time. Immediate updates will be issued as the situation warrents.', colour=0xff0000)
+                            em.set_author(name='The current defcon status is 1. Condition RED', icon_url='https://i.imgur.com/I1nzRe5.png')
+                            await client.say(embed=em)
+                            await client.say("IMMEDIATELY READ AND PRINT THIS GUIDE TO NUCLEAR SURVIVAL: http://www.ki4u.com/guide.pdf")
 
-@client.command()	#theway
-async def theway(*args):
-	await client.say('<:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600><:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600><:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600>')
-	await client.say('<:theway:398661623142809600> <:theway:398661623142809600> ***YOU DO NOT KNOW THE WAY*** <:theway:398661623142809600> <:theway:398661623142809600>')
-	await client.say('<:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600><:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600><:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600> <:theway:398661623142809600>')
+@client.command(pass_context=True)
+async def alex(ctx):
+    await client.send_message(ctx.message.user, 'Watchout for that truck!')
+
 @client.command()	#noneedtobeupset
 async def noneedtobeupset(*args):
 	await client.say('https://www.youtube.com/watch?v=eY52Zsg-KVI')
@@ -101,7 +134,11 @@ async def myeyes(*args):
 		list(args)
 		argsINT = int(args[0])
 		print(args)
-		if argsINT <= 1000000: #for mild fuck ups
+<<<<<<< HEAD
+		if argsINT <= 5:
+=======
+		if argsINT <= 5: #for mild fuck ups
+>>>>>>> 3ec3bd0827aee67811c0758408d8dee92109075b
 			while count < argsINT:
 				await client.say("https://i.imgur.com/zlARfFy.gif")
 				count += 1
