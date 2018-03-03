@@ -134,15 +134,8 @@ async def myeyes(*args):
 		list(args)
 		argsINT = int(args[0])
 		print(args)
-<<<<<<< HEAD
-<<<<<<< HEAD
-		if argsINT <= 5:
-=======
 		if argsINT <= 5: #for mild fuck ups
->>>>>>> 3ec3bd0827aee67811c0758408d8dee92109075b
-=======
-		if argsINT <= 5: #for mild fuck ups
->>>>>>> 3ec3bd0827aee67811c0758408d8dee92109075b
+
 			while count < argsINT:
 				await client.say("https://i.imgur.com/zlARfFy.gif")
 				count += 1
