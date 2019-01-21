@@ -4,6 +4,8 @@ import asyncio
 import random
 import urllib.request
 
+with open('key.txt', 'r') as myfile:
+  TOKEN = myfile.read()
 
 #output_directory = '/home/megumin/discord_bots/ORRER-Bot'
 
@@ -52,17 +54,17 @@ async def hello(*args):
     em.set_author(name='Someone', icon_url='https://i.imgur.com/I1nzRe5.png')
     await client.say(embed=em)
 
-@client.command()	#classic ytho response
-async def ytho(*args):
-	await client.say('http://i.imgur.com/yNlQWRM.jpg')
+@client.command(pass_context=True)	#classic ytho response
+async def ytho(ctx):
+	await client.send_file(ctx.message.channel, 'pics/ytho.jpg')
 
-@client.command()	#reee
-async def reee(*args):
-	await client.say('http://imgur.com/Bog0DR1.gif')
+@client.command(pass_context=True)	#reee
+async def reee(ctx):
+	await client.send_file(ctx.message.channel, 'pics/ree.gif')
 
-@client.command()	#butytho
-async def butytho(*args):
-	await client.say('http://i.imgur.com/fibCEus.gifv')
+@client.command(pass_context=True)	#butytho
+async def butytho(ctx):
+	await client.send_file(ctx.message.channel, 'pics/butytho.gif')
 
 @client.command()	#defcon
 async def defcon(*args):
@@ -96,7 +98,7 @@ async def defcon(*args):
                             await client.say(embed=em)
                             await client.say("IMMEDIATELY READ AND PRINT THIS GUIDE TO NUCLEAR SURVIVAL: http://www.ki4u.com/guide.pdf")
 
-@client.command(pass_context=True)
+@client.command(pass_context=True) #reaction images of alex
 async def alex(ctx):
     await client.send_message(ctx.message.user, 'Watchout for that truck!')
 
@@ -104,21 +106,22 @@ async def alex(ctx):
 async def noneedtobeupset(*args):
 	await client.say('https://www.youtube.com/watch?v=eY52Zsg-KVI')
 
-@client.command()	#trevor's bit
-async def error(*args):
+@client.command(pass_context=True)	#trevor's bit
+async def error(ctx):
 	await client.say("*[ORRER}*")
+	await client.send_file(ctx.message.channel, 'test.jpg')
 
-@client.command()	#why are you like this
-async def whyyoulikethis(*args):
-	await client.say("http://i.imgur.com/QhoSZWy.png")
+@client.command(pass_context=True)	#why are you like this
+async def whyyoulikethis(ctx):
+	await client.send_file(ctx.message.channel, 'pics/why.jpg')
 
-@client.command()	#eyebrows
-async def eyebrows(*args):
+@client.command(pass_context=True)	#eyebrows
+async def eyebrows(ctx):
 	randNum = random.randint(0, 1)
 	if randNum == 0:
-		await client.say('https://i.imgur.com/YYnA64s.gif')
+		await client.send_file(ctx.message.channel, 'pics/eyebrows1.gif')
 	else:
-		await client.say('https://i.imgur.com/M7HkE2t.gif')
+		await client.send_file(ctx.message.channel, 'pics/eyebrows2.gif')
 
 #@client.command() #trevor's random anime command
 #async def anime(*args):
@@ -179,4 +182,4 @@ async def on_ready():
 	print('------')
 	await client.change_presence(game=discord.Game(name="$commandhelp for help"))
 
-client.run('TOKEN')
+client.run(TOKEN)
