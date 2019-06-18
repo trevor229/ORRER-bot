@@ -3,6 +3,7 @@ Me and Alex's shitty discord.py bot
 
 ## Requirements:
 * [discord.py](https://github.com/Rapptz/discord.py) (I'm using 0.16.12 (Latest release)
+  * `pip3 install discord.py==0.16.12`
 * Python 3.4.2+
 * `aiohttp` library (Discord.py prereq)
 * `websockets` library (Discord.py prereq)
